@@ -45,3 +45,11 @@ def get_value_from_json(json_parsed, field_name)
     end        
     return field_value  
 end
+
+def get_array_values_by_key(the_array, key)
+  values_array = Array.new
+  the_array.each_with_index do |value, index|
+    values_array.push(get_value_from_json(the_array[index], key))
+  end
+  values_array
+end
