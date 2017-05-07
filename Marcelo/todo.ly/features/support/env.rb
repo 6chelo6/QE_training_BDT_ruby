@@ -33,14 +33,15 @@ AfterConfiguration do |config|
   $app_host = configuration['app']['host']
   $app_port = configuration['app']['port']
   $app_root = configuration['app']['rootPath']
-
+  $app_timeout = configuration['app']['timeout']
 
   path = create_folder('logs')
   init_logger(path, 'log.txt')
-  Log.info('$app_user: ' + $app_user)
-  Log.info('$app_host: ' + $app_host)
-  Log.info('$app_port: ' + $app_port.to_s)
-  Log.info('$app_root: ' + $app_root)
+  Log.info('APP USER: ' + $app_user)
+  Log.info('HOST: ' + $app_host)
+  Log.info('PORT: ' + $app_port.to_s)
+  Log.info('ROOT: ' + $app_root)
+  Log.info('HTTP_TIMEOUT_FOR_RESPONSE: ' + $app_timeout.to_s)
 end
 
 def get_value_from_json(json_parsed, field_name)    
