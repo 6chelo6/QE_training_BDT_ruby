@@ -24,6 +24,13 @@ Scenario: Create a user with in-existing mail
 		}
 	"""
 	Then I expect HTTP code 200
+		And I expect JSON equal to
+		"""
+		{
+			"ErrorMessage": "Account with this email address already exists",
+			"ErrorCode": 201
+			}
+		""" 
 
 Scenario: Get
 	Given I have set a connection to application

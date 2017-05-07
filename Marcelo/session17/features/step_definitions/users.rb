@@ -20,3 +20,7 @@ When(/^I send a (GET) request to (\/user\.json)$/) do |method, end_point|
 	@http_response = Rest_service.execute_request(@http_connection, http_request)
 	@last_json = @http_response.body
 end
+
+Then /^I expect JSON equal to$/ do |json_text|
+  expect(@last_json).to be_json_eql json_text
+end

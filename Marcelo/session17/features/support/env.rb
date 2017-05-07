@@ -1,6 +1,8 @@
 
 require 'pathname'
 require 'yaml'
+require 'json'
+require 'json_spec/cucumber'
 
 def find_config_file(filename)
   root = Pathname.pwd

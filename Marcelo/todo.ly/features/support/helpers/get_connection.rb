@@ -18,7 +18,6 @@ end
 def Rest_service.get_request(method, url)
     request = nil   
     url = $app_root + url
-   
     case method
       when "POST"
         request = Net::HTTP::Post.new(url)

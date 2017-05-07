@@ -16,10 +16,6 @@ When(/^I send a (GET) request to (\/filters\.json)$/) do |method, end_point|
 end
 
 Then(/^I expect HTTP code (\d+)$/) do |http_code|
-	# TODO: Delete these puts
-	puts "RESPONSE STATUS CODE: #{@http_response.code}"
-	puts "RESPONSE BODY: #{@http_response.body}"
-
 	expect(@http_response.code).to eql(http_code)
 end
 

@@ -46,6 +46,7 @@ When /^I keep the "(.*?)" as "(.*?)" from JSON(?: response|)$/ do |field_name, v
 	@field_value = get_value_from_json(@json_response_parsed, field_name)  
 	puts "FIELD VALUE: #{@field_value}"
 	puts "EVAL: #{eval("#{variable} = '#{@field_value}'")}"
+	
 end
 
 When(/^I send (GET) requests to "([^"]*)" with "([^"]*)" until the json at "([^"]*)" matches "([^"]*)"$/) do |request, url, variable, status, complete|
