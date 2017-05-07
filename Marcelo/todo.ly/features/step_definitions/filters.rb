@@ -8,7 +8,7 @@ When (/I have filters by default in my account/) do
 	puts "I have filters by default in my account"
 end
 
-When(/^I send a (GET) request to (\/filters\.json)$/) do |method, end_point|
+When(/^I send a (GET) request to ([A-Za-z\/.]+)$/) do |method, end_point|
 	http_request = Rest_service.get_request(method, end_point)
 	@http_response = Rest_service.execute_request(@http_connection, http_request)
 	@last_json = @http_response.body
