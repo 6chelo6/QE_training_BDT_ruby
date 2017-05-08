@@ -35,7 +35,7 @@ Then(/^I expect the default filter names in the response$/) do |table|
 	end
 end
 
-When(/^I send a (GET) request to "([A-Za-z\/.]+)" with "([^"]*)" equal to "([^"]*)" for each filter$/) do |method, end_point, field_name, variable|
+When(/^I send (GET) request to "([A-Za-z\/.]+)" with "([^"]*)" equal to "([^"]*)" for each filter$/) do |method, end_point, field_name, variable|
 	# table is a Cucumber::MultilineArgument::DataTable
 	
 	# Getting array of values based on key "Content" criteria
@@ -67,7 +67,7 @@ When(/^I keep the "([^"]*)" as "([^"]*)"$/) do |field_name, variable|
 	@filter_id = eval(variable = @content_sub_json[field_name].to_s)
 end
 
-When(/^I send a (GET) request to "([A-Za-z\/.]+)" with "([^"]*)" equal to "([^"]*)"$/) do |method, end_point, field_name, variable|
+When(/^I send (GET) request to "([A-Za-z\/.]+)" with "([^"]*)" equal to "([^"]*)"$/) do |method, end_point, field_name, variable|
 	# Replacing the id by the value
 	end_point.sub! "id", eval("#{field_name} = '#{@filter_id}'")
 
