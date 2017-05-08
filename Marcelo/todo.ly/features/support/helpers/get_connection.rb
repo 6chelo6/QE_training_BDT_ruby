@@ -13,7 +13,7 @@ module Rest_service
   end
 end
 
-def Rest_service.get_request(method, url)
+def Rest_service.get_request(method, url, user=$app_user, password=$app_pass)
     request = nil   
     url = $app_root + url
     Log.info("Endpoint: " + url)
@@ -31,7 +31,28 @@ def Rest_service.get_request(method, url)
         Log.info("Method Request: " + method)
         request = Net::HTTP::Get.new(url)
     end
-    request.basic_auth($app_user,$app_pass)  
+    request.basic_auth(user,password)  
+    return request
+  end
+  
+def Rest_service.get_no_auth(method, url)
+    request = nil   
+    url = $app_root + url
+    Log.info("Endpoint: " + url)
+    case method
+      when "POST"
+        Log.info("Method Request: " + method)
+        request = Net::HTTP::Post.new(url)
+      when "PUT"
+        Log.info("Method Request: " + method)
+        request = Net::HTTP::Put.new(url)
+      when "DELETE"
+        Log.info("Method Request: " + method)
+        request = Net::HTTP::Delete.new(url)
+      when "GET"
+        Log.info("Method Request: " + method)
+        request = Net::HTTP::Get.new(url)
+    end
     return request
   end
 
